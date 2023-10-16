@@ -1,0 +1,19 @@
+[package]
+name = "pax_gol"
+version = "0.9.5"
+edition = "2021"
+
+[dependencies]
+pax-lang = { version = "0.9.5" }
+pax-std = { version = "0.9.5" }
+pax-compiler = { version = "0.9.5", optional = true}
+serde_json = {version = "1.0.95", optional = true}
+rand = "0.8.5"
+
+[[bin]]
+name = "parser"
+path = "src/lib.rs"
+required-features = ["parser"]
+
+[features]
+parser = ["pax-std/parser", "pax-lang/parser", "dep:serde_json", "dep:pax-compiler"]
